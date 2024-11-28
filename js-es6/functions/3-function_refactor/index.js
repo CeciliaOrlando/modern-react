@@ -1,5 +1,3 @@
-// convertir las siguientes funciones asincronas de .then usando el formato de async await
-
 import {
   fetchData,
   fetchData1,
@@ -11,96 +9,58 @@ import {
 } from "./fetchers.mock";
 
 // 1)
-fetchData()
-  .then((data) => {
-    console.log(data);
-    return data;
-  })
-  .catch((error) => {
-    console.log(error);
-    throw error;
-  });
+export const asyncFetchData = async () => {
+  const data = await fetchData();
 
-export const asyncFetchData = () => {
-  // tu codigo aqui
+  return data;
 };
 
 // 2)
-getUser(1)
-  .then((user) => {
-    console.log("Usuario encontrado:", user);
-    return JSON.parse(user);
-  })
-  .then((data) => {
-    console.log(data);
-    return data;
-  })
-  .catch((error) => {
-    console.log(error);
-    throw error;
-  });
-
-export const asyncGetUser = () => {
-  // tu codigo aqui
+export const asyncGetUser = async () => {
+  const res = await getUser(1);
+  const data = await JSON.parse(res);
+  return data;
 };
 
-// 3) si las credenciales son incorrectas levantara un error
-login("admin", "1234")
-  .then((message) => {
-    console.log(message);
-    return getUserInfo();
-  })
-  .then((userInfo) => {
-    console.log("Información del usuario:", userInfo);
+// 3)
+export const asyncLogin = async () => {
+  try {
+    await login("admin", "1234");
+    const userInfo = await getUserInfo();
     return userInfo;
-  })
-  .catch((error) => {
-    console.log(error);
-    throw error;
-  });
-
-export const asyncLogin = () => {
-  // tu codigo aqui
+  } catch (err) {
+    console.log(err);
+    return err;
+  }
 };
 
-// 4) manejo de errores
-
-getData()
-  .then((data) => {
-    console.log(data);
-    return { data };
-  })
-  .catch((error) => {
-    console.log(error);
-    throw error;
-  });
-
-export const asyncGetData = () => {
-  // tu ccodigo aqui
+// 4)
+export const asyncGetData = async () => {
+  const data = await getData();
+  console.log(data);
+  return data;
 };
 
 // 5)
+export const asyncFetchData1 = async () => {
+  const data1 = await fetchData1();
+  const data2 = await fetchData2();
 
-fetchData1()
-  .then((data1) => {
-    console.log(data1);
-    return fetchData2();
-  })
-  .then((data2) => {
-    console.log(data2);
-    return data2;
-  })
-  .catch((error) => {
-    console.log(error);
-    throw error;
-  });
+  console.log(data1);
+  console.log(data2);
 
-export const asyncFetchData1 = () => {
-  //tu codigo aqui
+  return data2;
 };
 
-// crear una funcion para realizar fetch utilizando async await, debe recibir un string(url) retornar la respuesta o el error
+//6) crear una funcion para realizar fetch utilizando async await, debe recibir un string(url) retornar la respuesta o el error
 
-const fetcherFn = (url) => {
-  //tu codigo aqui
+const fetcherFn = async (url) => {
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+  } catch (e) {
+    console.log(e.message);
+    return e.message;
+  }
 };
