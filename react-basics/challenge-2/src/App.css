@@ -5,3 +5,32 @@
   text-align: center;
 }
 
+
+.quote-destacada {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+}
+
+.quote-destacada h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.quote-destacada p {
+  font-size: 1.2em;
+  font-style: italic;
+}
+
+.quote-card {
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+.quote-card:hover {
+  background-color: #f0f0f0;
+}
