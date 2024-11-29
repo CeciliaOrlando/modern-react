@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { generatePrimes } from '../lib/utils';
 
 export default function ExpensiveCalculationComponent() {
@@ -25,7 +25,9 @@ export default function ExpensiveCalculationComponent() {
 }
 
 function PrimeComponent() {
-    const primes = generatePrimes(50000);
+     const primes = useMemo (() => generatePrimes(50000), []);
+    // const primes =  generatePrimes(50000);
+    console.log('Primes rendered');
 
     return (
         <div>

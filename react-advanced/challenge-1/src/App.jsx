@@ -13,6 +13,7 @@ function App() {
     <ThemeProvider>
       <div>
         <Navbar />
+        <ExpensiveCalculationComponent />
         {/* <MainContent /> */}
       </div>
     </ThemeProvider>
