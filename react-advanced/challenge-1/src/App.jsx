@@ -14,6 +14,7 @@ function App() {
       <div>
         <Navbar />
         <ExpensiveCalculationComponent />
+        <Calculator />
         {/* <MainContent /> */}
       </div>
     </ThemeProvider>
