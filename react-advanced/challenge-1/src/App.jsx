@@ -4,6 +4,7 @@ import ExpensiveCalculationComponent from './components/ExpensiveCalculationComp
 import Navbar from './components/Navbar';
 import { ThemeProvider} from './context/ThemeContext';
 
+
 // import { useTheme, ThemeContext } from './context/ThemeContext';
 
 import './App.css';
@@ -15,7 +16,7 @@ function App() {
         <Navbar />
         <ExpensiveCalculationComponent />
         <Calculator />
-        {/* <MainContent /> */}
+        <AnimatedComponent />
       </div>
     </ThemeProvider>
   );

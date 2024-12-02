@@ -1,6 +1,14 @@
+import { useRef } from 'react';
+
 export default function AnimatedComponent() {
+
+    const coloredBox = useRef(null)
+    console.log(coloredBox);
+
+
     const changeBoxColor = () => {
         // función de cambio de color
+        coloredBox.current.style.backgroundColor = getRandomColor();
     };
 
     const getRandomColor = () => {
@@ -13,10 +21,10 @@ export default function AnimatedComponent() {
                 Caja de colores
             </h2>
 
-            <div className="flex justify-center gap-14 items-center">
+            <div className="flex justify-center gap-14 items-center background-red">
                 {/* BOX */}
-                <div
-                    className="size-40 border border-slate-300 rounded-lg"
+                <div ref={coloredBox}
+                    className="size-40 border border-slate-300 rounded-lg" // referenciar esta caja
                 ></div>
 
                 <div>
